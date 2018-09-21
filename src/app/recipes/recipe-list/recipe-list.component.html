@@ -7,22 +7,11 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="list-group">
-      <a href="#" class="list-group-item 
-      list-group-item-action 
-      flex-column align-items-start" *ngFor="let recipe of recipes">
-        <div class="row">
-          <div class="col-lg-9">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{recipe.name}}</h5>
-            </div>
-            <p class="mb-1">{{recipe.description}}</p>
-          </div>
-          <div class="col-lg-3">
-            <img alt="{{recipe.name}}" [src]="recipe.imagePath" class="image-responsive" style="max-height:50px;" />
-          </div>
-        </div>
-      </a>
+      <app-recipe-item 
+      *ngFor="let recipe of recipes" 
+      [recipe]="recipe"
+      (recipeClicked)="onRecipeSelected($event)"
+      ></app-recipe-item>
     </div>
-    <app-recipe-item></app-recipe-item>
   </div>
 </div>
